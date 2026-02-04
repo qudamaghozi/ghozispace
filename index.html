@@ -200,6 +200,50 @@
             color: #555;
         }
 
+        /* Tableau Dashboard Section */
+        #tableau-dashboard {
+            background: #ffffff;
+            padding: 100px 20px;
+        }
+
+        #tableau-dashboard h2 {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-description {
+            max-width: 800px;
+            margin-bottom: 3rem;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .tableau-wrapper {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+        }
+
+        .dashboard-tags {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         /* Skills Section */
         #skills {
             background: #ffffff;
@@ -426,6 +470,14 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            .tableau-wrapper {
+                padding: 15px;
+            }
+
+            .tableauPlaceholder {
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
@@ -437,6 +489,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#tableau-dashboard">Dashboard</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -465,6 +518,66 @@
             <p>
                 With experience in data analysis and IT support, I'm ready to help your business optimize processes and increase operational efficiency.
             </p>
+        </div>
+    </section>
+
+    <!-- Tableau Dashboard Section -->
+    <section id="tableau-dashboard">
+        <h2>📊 Customer Analysis Dashboard</h2>
+        
+        <div class="dashboard-tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">Customer Analytics</span>
+            <span class="tag">Data Visualization</span>
+        </div>
+
+        <p class="dashboard-description">
+            Interactive dashboard analyzing customer behavior patterns, demographics, and key performance metrics. 
+            This visualization provides actionable insights for data-driven decision making.
+        </p>
+
+        <div class="tableau-wrapper">
+            <!-- Tableau Embed Code -->
+            <div class='tableauPlaceholder' id='viz1770191444970' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cu&#47;CustomerAnalysis_17701913750150&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='site_root' value='' />
+                    <param name='name' value='CustomerAnalysis_17701913750150&#47;Dashboard1' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cu&#47;CustomerAnalysis_17701913750150&#47;Dashboard1&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                    <param name='filter' value='publish=yes' />
+                </object>
+            </div>                
+            <script type='text/javascript'>                    
+                var divElement = document.getElementById('viz1770191444970');                    
+                var vizElement = divElement.getElementsByTagName('object')[0];                    
+                if ( divElement.offsetWidth > 800 ) { 
+                    vizElement.style.width='1200px';
+                    vizElement.style.height='827px';
+                } else if ( divElement.offsetWidth > 500 ) { 
+                    vizElement.style.width='1200px';
+                    vizElement.style.height='827px';
+                } else { 
+                    vizElement.style.width='100%';
+                    vizElement.style.height='1977px';
+                }                     
+                var scriptElement = document.createElement('script');                    
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+            </script>
         </div>
     </section>
 
@@ -529,7 +642,7 @@
                     <a href="https://instagram.com/qudamaghozi">Instagram</a>
                 </div>
                 <div class="contact-item">
-                    <a href="mailto:ghozi.qudama14@gmail.com">Email</a>
+                    <a href="mailto:your-email@example.com">Email</a>
                 </div>
                 <div class="contact-item">
                     <a href="https://linkedin.com/in/qudamaghozi">LinkedIn</a>
@@ -577,9 +690,29 @@
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s, transform 0.6s';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
+
+        // Navigation scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const nav = document.querySelector('nav');
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Muhammad Ghozi Qudama. All rights reserved.</p>
+    </footer>
 </body>
 </html>
